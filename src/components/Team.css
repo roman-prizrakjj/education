@@ -1,0 +1,143 @@
+.team__header {
+  text-align: center;
+  margin-bottom: var(--spacing-3xl);
+}
+
+.team__subtitle {
+  font-size: var(--text-lg);
+  color: rgba(255, 255, 255, 0.7);
+  max-width: 600px;
+  margin: var(--spacing-sm) auto 0;
+}
+
+.team__main {
+  display: flex;
+  justify-content: center;
+  margin-bottom: var(--spacing-3xl);
+}
+
+.team__founder {
+  display: flex;
+  align-items: center;
+  gap: var(--spacing-xl);
+  padding: var(--spacing-2xl);
+  background: rgba(212, 168, 75, 0.1);
+  border: 1px solid rgba(212, 168, 75, 0.3);
+  border-radius: var(--radius-xl);
+  max-width: 700px;
+}
+
+.team__founder-avatar {
+  width: 120px;
+  height: 120px;
+  border-radius: 50%;
+  background: linear-gradient(135deg, var(--color-primary) 0%, var(--color-primary-dark) 100%);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+}
+
+.team__founder-avatar span {
+  font-size: var(--text-3xl);
+  font-weight: 800;
+  color: var(--color-text-light);
+}
+
+.team__founder-info {
+  flex: 1;
+}
+
+.team__founder-name {
+  font-size: var(--text-2xl);
+  font-weight: 700;
+  color: var(--color-text-light);
+  margin-bottom: var(--spacing-xs);
+}
+
+.team__founder-role {
+  display: block;
+  font-size: var(--text-base);
+  color: var(--color-primary);
+  margin-bottom: var(--spacing-md);
+}
+
+.team__founder-bio {
+  font-size: var(--text-base);
+  color: rgba(255, 255, 255, 0.7);
+  line-height: 1.6;
+}
+
+.team__partners {
+  text-align: center;
+}
+
+.team__partners-title {
+  font-size: var(--text-lg);
+  font-weight: 600;
+  color: rgba(255, 255, 255, 0.5);
+  margin-bottom: var(--spacing-xl);
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+}
+
+.team__partners-grid {
+  display: flex;
+  justify-content: center;
+  gap: var(--spacing-2xl);
+  flex-wrap: wrap;
+}
+
+.team__partner {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: var(--spacing-sm);
+}
+
+.team__partner-logo {
+  width: 80px;
+  height: 80px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: rgba(255, 255, 255, 0.1);
+  border-radius: var(--radius-lg);
+  font-size: var(--text-xl);
+  font-weight: 700;
+  color: var(--color-primary);
+  transition: var(--transition-base);
+}
+
+.team__partner:hover .team__partner-logo {
+  background: var(--color-primary);
+  color: var(--color-bg-dark);
+}
+
+.team__partner-name {
+  font-size: var(--text-sm);
+  color: rgba(255, 255, 255, 0.7);
+}
+
+@media (max-width: 768px) {
+  .team__founder {
+    flex-direction: column;
+    text-align: center;
+    padding: var(--spacing-xl);
+  }
+
+  .team__founder-avatar {
+    width: 100px;
+    height: 100px;
+  }
+
+  .team__partners-grid {
+    gap: var(--spacing-lg);
+  }
+
+  .team__partner-logo {
+    width: 60px;
+    height: 60px;
+    font-size: var(--text-base);
+  }
+}
