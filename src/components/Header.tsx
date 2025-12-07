@@ -16,11 +16,14 @@ const Header = () => {
   useEffect(() => {
     if (isMobileMenuOpen) {
       document.body.style.overflow = 'hidden';
+      document.documentElement.style.overflow = 'hidden';
     } else {
       document.body.style.overflow = '';
+      document.documentElement.style.overflow = '';
     }
     return () => {
       document.body.style.overflow = '';
+      document.documentElement.style.overflow = '';
     };
   }, [isMobileMenuOpen]);
 
@@ -40,19 +43,35 @@ const Header = () => {
         </a>
 
         <nav className={`header__nav ${isMobileMenuOpen ? 'header__nav--open' : ''}`}>
-          {navItems.map((item) => (
-            <a
-              key={item.href}
-              href={item.href}
-              className="header__nav-link"
-              onClick={() => setIsMobileMenuOpen(false)}
-            >
-              {item.label}
+          <div className="header__nav-top">
+            <a href="#" className="header__logo header__logo--dark" onClick={() => setIsMobileMenuOpen(false)}>
+              <span className="header__logo-text">EMD</span>
+              <span className="header__logo-accent">Education</span>
             </a>
-          ))}
-          <a href="#contact" className="btn btn-primary header__cta">
-            Консультация
-          </a>
+            <button
+              className="header__close"
+              onClick={() => setIsMobileMenuOpen(false)}
+              aria-label="Close menu"
+            >
+              <span></span>
+              <span></span>
+            </button>
+          </div>
+          <div className="header__nav-links">
+            {navItems.map((item) => (
+              <a
+                key={item.href}
+                href={item.href}
+                className="header__nav-link"
+                onClick={() => setIsMobileMenuOpen(false)}
+              >
+                {item.label}
+              </a>
+            ))}
+            <a href="#contact" className="btn btn-primary header__cta" onClick={() => setIsMobileMenuOpen(false)}>
+              Консультация
+            </a>
+          </div>
         </nav>
 
         <button
