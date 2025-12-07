@@ -1,10 +1,46 @@
 import './Team.css';
 
 const partners = [
-  { name: 'Сколково', logo: 'Sk' },
-  { name: 'Zerocoder', logo: 'Zc' },
-  { name: 'Hop Agency', logo: 'HA' },
-  { name: 'EMD Labs', logo: 'EL' },
+  { 
+    name: 'Сколково', 
+    logo: <img src="/skolkovo-logo.svg" alt="Сколково" />
+  },
+  { 
+    name: 'Zerocoder', 
+    logo: <img src="/zerocoder-logo.png" alt="Zerocoder" />
+  },
+  { 
+    name: 'Hop Agency', 
+    logo: <img src="/hopagency-logo.svg" alt="Hop Agency" />
+  },
+  { 
+    name: 'EMD Labs', 
+    logo: <img src="/emd-labs-logo.png" alt="EMD Labs" />
+  },
+];
+
+const teamMembers = [
+  {
+    initials: 'РШ',
+    name: 'Роман Шляхта',
+    role: 'Основатель EMD Education',
+    bio: 'Визионер в AI, основатель крупного сообщества по нейроассист-кодингу. Более 10 лет в IT и консалтинге. Специализация — внедрение AI-решений в бизнес-процессы.',
+    photo: '/shlyahta.jpg',
+  },
+  {
+    initials: 'АФ',
+    name: 'Александр Фомин',
+    role: 'Основатель EMD Labs',
+    bio: 'IT-предприниматель и разработчик. Эксперт в веб-разработке, автоматизации и low-code решениях. Энтузиаст AI и no-code интеграций.',
+    photo: '/fomin.webp',
+  },
+  {
+    initials: 'ЕП',
+    name: 'Евгений Полевов',
+    role: 'Fullstack Developer & DevOps',
+    bio: 'Более 15 лет в IT: fullstack JS-разработка, DevOps, запуск стартапов. Практик с глубокой экспертизой в построении масштабируемых решений.',
+    photo: '/polevov.jpg',
+  },
 ];
 
 const Team = () => {
@@ -20,20 +56,23 @@ const Team = () => {
           </p>
         </div>
 
-        <div className="team__main">
-          <div className="team__founder">
-            <div className="team__founder-avatar">
-              <span>РШ</span>
+        <div className="team__grid">
+          {teamMembers.map((member) => (
+            <div key={member.name} className="team__member">
+              <div className="team__member-avatar">
+                {member.photo ? (
+                  <img src={member.photo} alt={member.name} />
+                ) : (
+                  <span>{member.initials}</span>
+                )}
+              </div>
+              <div className="team__member-info">
+                <h3 className="team__member-name">{member.name}</h3>
+                <span className="team__member-role">{member.role}</span>
+                <p className="team__member-bio">{member.bio}</p>
+              </div>
             </div>
-            <div className="team__founder-info">
-              <h3 className="team__founder-name">Роман Шляхта</h3>
-              <span className="team__founder-role">Основатель EMD Education</span>
-              <p className="team__founder-bio">
-                Визионер и основатель экосистемы EMD Labs. Более 10 лет в IT и консалтинге. 
-                Специализация — внедрение AI-решений в бизнес-процессы компаний.
-              </p>
-            </div>
-          </div>
+          ))}
         </div>
 
         <div className="team__partners">
@@ -41,7 +80,7 @@ const Team = () => {
           <div className="team__partners-grid">
             {partners.map((partner) => (
               <div key={partner.name} className="team__partner">
-                <span className="team__partner-logo">{partner.logo}</span>
+                <div className="team__partner-logo">{partner.logo}</div>
                 <span className="team__partner-name">{partner.name}</span>
               </div>
             ))}
