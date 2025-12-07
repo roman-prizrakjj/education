@@ -71,6 +71,14 @@
   margin-left: var(--spacing-sm);
 }
 
+.header__nav-top {
+  display: none;
+}
+
+.header__nav-links {
+  display: contents;
+}
+
 .header__burger {
   display: none;
   flex-direction: column;
@@ -144,7 +152,7 @@
     top: 0;
     left: 0;
     right: 0;
-    display: flex;
+    display: flex !important;
     align-items: center;
     justify-content: space-between;
     padding: var(--spacing-sm) var(--container-padding);
