@@ -57,7 +57,7 @@
 .case-card__result {
   font-size: var(--text-base);
   font-weight: 700;
-  color: var(--color-primary);
+  color: var(--color-primary-text);
   background: var(--color-accent);
   padding: var(--spacing-xs) var(--spacing-sm);
   border-radius: var(--radius-sm);

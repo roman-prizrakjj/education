@@ -26,14 +26,14 @@
 }
 
 .faq__question:hover {
-  color: var(--color-primary);
+  color: var(--color-primary-text);
 }
 
 .faq__number {
   font-size: var(--text-lg);
   font-weight: 700;
-  color: var(--color-primary);
-  opacity: 0.5;
+  color: var(--color-primary-text);
+  opacity: 0.7;
   flex-shrink: 0;
 }
 
@@ -50,7 +50,7 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  color: var(--color-primary);
+  color: var(--color-primary-text);
   transition: var(--transition-fast);
 }
 

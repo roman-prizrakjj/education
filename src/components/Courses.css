@@ -14,7 +14,7 @@
 }
 
 .text-accent {
-  color: var(--color-primary);
+  color: var(--color-primary-text);
 }
 
 .courses__stack {
@@ -62,7 +62,7 @@
 .course-card__icon {
   width: 120px;
   height: 140px;
-  color: var(--color-primary);
+  color: var(--color-primary-text);
 }
 
 .course-card__icon svg {

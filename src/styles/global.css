@@ -145,8 +145,12 @@ h4 { font-size: var(--text-2xl); }
   font-size: var(--text-sm);
   font-weight: 500;
   background: var(--color-accent);
-  color: var(--color-primary-dark);
+  color: var(--color-primary-text);
   border-radius: var(--radius-full);
+}
+
+.text-primary {
+  color: var(--color-primary-text);
 }
 
 
