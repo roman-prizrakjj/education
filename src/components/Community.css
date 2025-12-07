@@ -50,7 +50,10 @@
 }
 
 .community__feature-icon {
-  font-size: var(--text-lg);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--color-primary);
 }
 
 .community__feature-text {
