@@ -1,6 +1,6 @@
 .corporate {
   padding: var(--spacing-3xl) 0 0;
-  background: var(--color-bg-dark);
+  background: #1a1a1a;
 }
 
 .corporate__header {
@@ -27,10 +27,16 @@
   position: sticky;
   top: 100px;
   background: var(--color-bg-dark);
-  border-top: 1px solid rgba(255, 255, 255, 0.15);
-  padding: var(--spacing-2xl) 0;
-  margin: 0;
+  border: 2px solid transparent;
+  border-radius: 32px;
+  padding: 40px 48px;
+  margin: 0 16px var(--spacing-md);
   z-index: calc(10 + var(--card-index));
+  transition: border-color 0.2s ease;
+}
+
+.corporate-card--overlapping {
+  border-color: #0D0D0D;
 }
 
 .corporate-card:last-child {
@@ -38,9 +44,6 @@
 }
 
 .corporate-card__inner {
-  max-width: var(--container-max);
-  margin: 0 auto;
-  padding: 0 var(--container-padding);
   display: grid;
   grid-template-columns: 280px 1fr;
   gap: var(--spacing-2xl);
@@ -155,7 +158,9 @@
 
   .corporate-card {
     top: 80px;
-    padding: var(--spacing-xl) 0;
+    padding: var(--spacing-xl);
+    margin: 0 var(--spacing-md) var(--spacing-md);
+    border-radius: 20px;
   }
 
   .corporate-card__inner {

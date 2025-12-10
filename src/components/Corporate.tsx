@@ -1,3 +1,4 @@
+import { useEffect, useRef } from 'react';
 import './Corporate.css';
 
 const corporateServices = [
@@ -36,6 +37,40 @@ const corporateServices = [
 ];
 
 const Corporate = () => {
+  const stackRef = useRef<HTMLDivElement>(null);
+
+  useEffect(() => {
+    const handleScroll = () => {
+      if (!stackRef.current) return;
+      const cards = stackRef.current.querySelectorAll('.corporate-card');
+      const stickyTop = 100;
+      
+      const cardsArray = Array.from(cards);
+      
+      cardsArray.forEach((card, index) => {
+        if (index > 0) {
+          const rect = card.getBoundingClientRect();
+          const nextCard = cardsArray[index + 1];
+          
+          const isAtStickyPosition = rect.top <= stickyTop + 650;
+          const nextCardCoversThis = nextCard 
+            ? nextCard.getBoundingClientRect().top <= stickyTop + 5
+            : false;
+          
+          if (isAtStickyPosition && !nextCardCoversThis) {
+            card.classList.add('corporate-card--overlapping');
+          } else {
+            card.classList.remove('corporate-card--overlapping');
+          }
+        }
+      });
+    };
+
+    window.addEventListener('scroll', handleScroll);
+    handleScroll();
+    return () => window.removeEventListener('scroll', handleScroll);
+  }, []);
+
   return (
     <section className="corporate" id="corporate">
       <div className="container">
@@ -47,7 +82,7 @@ const Corporate = () => {
         </div>
       </div>
 
-      <div className="corporate__stack">
+      <div className="corporate__stack" ref={stackRef}>
         {corporateServices.map((service, index) => (
           <div 
             key={service.id} 

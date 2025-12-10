@@ -2,6 +2,7 @@ import './styles/global.css';
 import {
   Header,
   Hero,
+  About,
   Courses,
   Benefits,
   ForWhom,
@@ -20,6 +21,7 @@ function App() {
       <Header />
       <main>
         <Hero />
+        <About />
         <Courses />
         <Benefits />
         <ForWhom />

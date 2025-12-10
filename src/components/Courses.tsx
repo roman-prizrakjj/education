@@ -1,3 +1,4 @@
+import { useEffect, useRef } from 'react';
 import './Courses.css';
 
 const courses = [
@@ -36,6 +37,40 @@ const courses = [
 ];
 
 const Courses = () => {
+  const stackRef = useRef<HTMLDivElement>(null);
+
+  useEffect(() => {
+    const handleScroll = () => {
+      if (!stackRef.current) return;
+      const cards = stackRef.current.querySelectorAll('.course-card');
+      const stickyTop = 100;
+      
+      const cardsArray = Array.from(cards);
+      
+      cardsArray.forEach((card, index) => {
+        if (index > 0) {
+          const rect = card.getBoundingClientRect();
+          const nextCard = cardsArray[index + 1];
+          
+          const isAtStickyPosition = rect.top <= stickyTop + 650;
+          const nextCardCoversThis = nextCard 
+            ? nextCard.getBoundingClientRect().top <= stickyTop + 5
+            : false;
+          
+          if (isAtStickyPosition && !nextCardCoversThis) {
+            card.classList.add('course-card--overlapping');
+          } else {
+            card.classList.remove('course-card--overlapping');
+          }
+        }
+      });
+    };
+
+    window.addEventListener('scroll', handleScroll);
+    handleScroll();
+    return () => window.removeEventListener('scroll', handleScroll);
+  }, []);
+
   return (
     <section className="courses" id="courses">
       <div className="container">
@@ -47,7 +82,7 @@ const Courses = () => {
         </div>
       </div>
 
-      <div className="courses__stack">
+      <div className="courses__stack" ref={stackRef}>
         {courses.map((course, index) => (
           <div 
             key={course.id} 
